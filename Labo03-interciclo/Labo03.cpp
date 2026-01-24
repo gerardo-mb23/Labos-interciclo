@@ -10,6 +10,7 @@ struct nodo
 bool pilaVacia(nodo *tope);
 void push(nodo *&tope);
 void pop(nodo *&tope);
+void top(nodo* tope);
 
 bool pilaVacia(nodo *tope)
 {
@@ -43,6 +44,14 @@ void pop(nodo *&tope)
     cout << "Elemento eliminado: " << aux->dato << endl;
     tope = aux->siguiente;
     delete aux;
+}
+
+void top(nodo* tope) {
+    if (pilaVacia(tope)) {
+        cout << "La pila esta vacia. No hay tope.\n";
+    } else {
+        cout << "Elemento del tope: " << tope->dato << endl;
+    }
 }
 
 int main()
