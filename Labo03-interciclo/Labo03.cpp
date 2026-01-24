@@ -2,13 +2,20 @@
 
 using namespace std;
 
-struct nodo {
+struct nodo
+{
     int dato;
-    nodo* siguiente;
+    nodo *siguiente;
 };
+bool pilaVacia(nodo *tope);
+bool pilaVacia(nodo *tope)
+{
+    return (tope == NULL);
+}
 
-int main() {
-
+int main()
+{
+    nodo *tope = NULL;
 
     return 0;
 }
