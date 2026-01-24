@@ -8,17 +8,22 @@ struct nodo
     nodo *siguiente;
 };
 bool pilaVacia(nodo *tope);
-bool pilaVacia(nodo *tope) {
-    
+void push(nodo *&tope);
+void pop(nodo *&tope);
+
+bool pilaVacia(nodo *tope)
+{
+
     return (tope == NULL);
 }
-void push(nodo* &tope);
-void push(nodo* &tope) {
+
+void push(nodo *&tope)
+{
     int dato;
     cout << "Ingrese el numero: ";
     cin >> dato;
 
-    nodo* nuevo = new nodo;
+    nodo *nuevo = new nodo;
     nuevo->dato = dato;
     nuevo->siguiente = tope;
     tope = nuevo;
@@ -26,6 +31,19 @@ void push(nodo* &tope) {
     cout << "Dato insertado correctamente.\n";
 }
 
+void pop(nodo *&tope)
+{
+    if (pilaVacia(tope))
+    {
+        cout << "La pila esta vacia. No se puede eliminar.\n";
+        return;
+    }
+
+    nodo *aux = tope;
+    cout << "Elemento eliminado: " << aux->dato << endl;
+    tope = aux->siguiente;
+    delete aux;
+}
 
 int main()
 {
