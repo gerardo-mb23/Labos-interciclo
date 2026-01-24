@@ -12,7 +12,8 @@ void push(nodo *&tope);
 void pop(nodo *&tope);
 void top(nodo *tope);
 void mostrar(nodo *tope);
-void sumar(nodo* tope);
+void sumar(nodo *tope);
+void menu(nodo *&tope);
 
 bool pilaVacia(nodo *tope)
 {
@@ -78,16 +79,19 @@ void mostrar(nodo *tope)
     }
 }
 
-void sumar(nodo* tope) {
-    if (pilaVacia(tope)) {
+void sumar(nodo *tope)
+{
+    if (pilaVacia(tope))
+    {
         cout << "La pila esta vacia. Suma = 0\n";
         return;
     }
 
     int suma = 0;
-    nodo* aux = tope;
+    nodo *aux = tope;
 
-    while (aux != NULL) {
+    while (aux != NULL)
+    {
         suma += aux->dato;
         aux = aux->siguiente;
     }
@@ -95,9 +99,53 @@ void sumar(nodo* tope) {
     cout << "La suma de los elementos es: " << suma << endl;
 }
 
+void menu(nodo *&tope)
+{
+    int opcion;
+
+    do
+    {
+        cout << "\n--- MENU PILA ---\n";
+        cout << "1. Insertar (push)\n";
+        cout << "2. Eliminar tope (pop)\n";
+        cout << "3. Mostrar tope (top)\n";
+        cout << "4. Mostrar pila\n";
+        cout << "5. Sumar elementos\n";
+        cout << "6. Salir\n";
+        cout << "Opcion: ";
+        cin >> opcion;
+
+        switch (opcion)
+        {
+        case 1:
+            push(tope);
+            break;
+        case 2:
+            pop(tope);
+            break;
+        case 3:
+            top(tope);
+            break;
+        case 4:
+            mostrar(tope);
+            break;
+        case 5:
+            sumar(tope);
+            break;
+        case 6:
+            cout << "Saliendo del programa...\n";
+            break;
+        default:
+            cout << "Opcion invalida.\n";
+        }
+
+    } while (opcion != 6);
+}
+
 int main()
 {
     nodo *tope = NULL;
+    menu(tope);
 
     return 0;
 }
