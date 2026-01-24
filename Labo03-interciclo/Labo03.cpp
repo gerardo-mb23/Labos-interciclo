@@ -12,6 +12,7 @@ void push(nodo *&tope);
 void pop(nodo *&tope);
 void top(nodo *tope);
 void mostrar(nodo *tope);
+void sumar(nodo* tope);
 
 bool pilaVacia(nodo *tope)
 {
@@ -75,6 +76,23 @@ void mostrar(nodo *tope)
         cout << aux->dato << endl;
         aux = aux->siguiente;
     }
+}
+
+void sumar(nodo* tope) {
+    if (pilaVacia(tope)) {
+        cout << "La pila esta vacia. Suma = 0\n";
+        return;
+    }
+
+    int suma = 0;
+    nodo* aux = tope;
+
+    while (aux != NULL) {
+        suma += aux->dato;
+        aux = aux->siguiente;
+    }
+
+    cout << "La suma de los elementos es: " << suma << endl;
 }
 
 int main()
